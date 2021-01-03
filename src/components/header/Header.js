@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import { AppBar, Toolbar, useScrollTrigger, Button } from '@material-ui/core';
 
-import TabsContainer from './TabsContainer';
+import TabItemsContainer from '../../containers/TabItemsContainer';
 
 import logo from '../../assets/logo.svg';
 
@@ -69,7 +69,7 @@ const Header = () => {
             >
               <img alt="company logo" className={classes.logo} src={logo} />
             </Button>
-            <TabsContainer />
+            <TabItemsContainer />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
