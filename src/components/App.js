@@ -11,20 +11,22 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import EstimatePage from './pages/EstimatePage';
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <BrowserRouter>
-      <Header />
-      <Switch>
-        <Route exact path="/" to={HomePage} />
-        <Route exact path="/services" to={ServicesPage} />
-        <Route exact path="/revolution" to={RevolutionPage} />
-        <Route exact path="/about" to={AboutPage} />
-        <Route exact path="/contact" to={ContactPage} />
-        <Route exact path="/estimate" to={EstimatePage} />
-      </Switch>
-    </BrowserRouter>
-  </ThemeProvider>
-);
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/services" component={ServicesPage} />
+          <Route exact path="/revolution" component={RevolutionPage} />
+          <Route exact path="/about" component={AboutPage} />
+          <Route exact path="/contact" component={ContactPage} />
+          <Route exact path="/estimate" component={EstimatePage} />
+        </Switch>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
+};
 
 export default App;

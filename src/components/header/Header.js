@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
-
 import { AppBar, Toolbar, useScrollTrigger, Button } from '@material-ui/core';
+
+import TabsContainer from './TabsContainer';
 
 import logo from '../../assets/logo.svg';
 
@@ -68,10 +69,11 @@ const Header = () => {
             >
               <img alt="company logo" className={classes.logo} src={logo} />
             </Button>
+            <TabsContainer />
           </Toolbar>
         </AppBar>
-        <div className={classes.toolbarMargin} />
       </ElevationScroll>
+      <div className={classes.toolbarMargin} />
     </>
   );
 };
