@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
-import { AppBar, Toolbar, useScrollTrigger, Button } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
+import {
+  AppBar,
+  Toolbar,
+  useScrollTrigger,
+  Button,
+  useMediaQuery
+} from '@material-ui/core';
 
 import TabItemsContainer from '../../containers/TabItemsContainer';
+import DrawerContainer from '../../containers/DrawerContainer';
 
 import logo from '../../assets/logo.svg';
 
@@ -22,18 +30,16 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles(theme => ({
   appBar: {
-    zIndex: theme.zIndex.modal + 1,
-    width: '100vw',
-    left: 0
+    zIndex: theme.zIndex.modal + 1
   },
-  toolbarMargin: {
+  toolbar: {
     ...theme.mixins.toolbar,
     marginBottom: '3em',
     [theme.breakpoints.down('md')]: {
-      marginBottom: '2em'
+      marginBottom: '4em'
     },
     [theme.breakpoints.down('xs')]: {
-      marginBottom: '1.25em'
+      marginBottom: '2em'
     }
   },
   logoContainer: {
@@ -50,30 +56,40 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.down('xs')]: {
       height: '5em'
     }
+  },
+  drawerIconContainer: {
+    marginLeft: 'auto',
+    '&:hover': {
+      backgroundColor: 'transparent'
+    }
   }
 }));
 
-const Header = () => {
+const Header = ({ setTabIndex }) => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
       <ElevationScroll>
-        <AppBar position="fixed" className={classes.appbar}>
-          <Toolbar disableGutters>
-            <Button
-              component={Link}
-              to="/"
-              disableRipple
-              className={classes.logoContainer}
-            >
-              <img alt="company logo" className={classes.logo} src={logo} />
-            </Button>
-            <TabItemsContainer />
-          </Toolbar>
+        <AppBar position="fixed" className={classes.appBar}>
+          <AppBar position="fixed" className={classes.appbar}>
+            <Toolbar disableGutters>
+              <Button
+                component={Link}
+                to="/"
+                onClick={() => setTabIndex(0)}
+                className={classes.logoContainer}
+              >
+                <img alt="company logo" className={classes.logo} src={logo} />
+              </Button>
+              {matchesMD ? <DrawerContainer /> : <TabItemsContainer />}
+            </Toolbar>
+          </AppBar>
         </AppBar>
       </ElevationScroll>
-      <div className={classes.toolbarMargin} />
+      <div className={classes.toolbar} />
     </>
   );
 };

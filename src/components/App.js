@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import theme from './ui/Theme';
 
-import Header from './header/Header';
+import HeaderContainer from '../containers/HeaderContainer';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import RevolutionPage from './pages/RevolutionPage';
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <Header />
+        <HeaderContainer />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/services" component={ServicesPage} />

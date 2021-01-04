@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
+import { routes } from './routes';
 
 import { Tabs, Tab } from '@material-ui/core';
 
@@ -11,37 +12,11 @@ const useStyles = makeStyles(theme => ({
     minWidth: 10,
     marginLeft: '25px'
   },
-  estimateButton: {
+  estimateTab: {
     ...theme.typography.estimate,
-    borderRadius: '50px',
-    margin: '0px 25px 0px 50px',
-    height: '45px',
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.light
-    }
-  },
-  menu: {
-    backgroundColor: theme.palette.common.blue,
-    color: 'white',
-    borderRadius: '0px'
-  },
-  menuItem: {
-    ...theme.typography.tab,
-    opacity: 0.7,
-    '&:hover': {
-      opacity: 1
-    }
+    backgroundColor: theme.palette.secondary
   }
 }));
-
-const routes = [
-  { name: 'Home', link: '/' },
-  { name: 'Services', link: '/services' },
-  { name: 'The Revolution', link: '/revolution' },
-  { name: 'About Us', link: '/about' },
-  { name: 'Contact Us', link: '/contact' },
-  { name: 'Free Estimate', link: '/estimate' }
-];
 
 const TabItems = ({ tabIndex, setTabIndex }) => {
   const classes = useStyles();
@@ -56,17 +31,36 @@ const TabItems = ({ tabIndex, setTabIndex }) => {
         value={tabIndex}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicator="primary"
+        indicatorColor="none"
       >
-        {routes.map(({ name, link }, i) => (
-          <Tab
-            key={name}
-            className={classes.tab}
-            component={Link}
-            to={link}
-            label={name}
-          />
-        ))}
+        {routes.map(({ name, link }, i) =>
+          i !== 5 ? (
+            <Tab
+              key={name}
+              className={classes.tab}
+              component={Link}
+              to={link}
+              label={name}
+            />
+          ) : (
+            <Tab
+              style={{
+                backgroundColor: 'orange',
+                borderRadius: '50px',
+                margin: '0 25px',
+                height: '45px',
+                font: 'white',
+                shadow: 'none',
+                opacity: 1
+              }}
+              key={name}
+              className={classes.estimateTab}
+              component={Link}
+              to={link}
+              label={name}
+            />
+          )
+        )}
       </Tabs>
     </>
   );

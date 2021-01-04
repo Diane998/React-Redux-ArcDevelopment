@@ -1,1 +1,2 @@
-export const SET_TAB_INDEX = 'SET_TAB_INDEX';
+export const SET_TAB_INDEX = 'SET_TAB_INDEX',
+  SET_DRAWER_OPEN = 'SET_DRAWER_OPEN ';
