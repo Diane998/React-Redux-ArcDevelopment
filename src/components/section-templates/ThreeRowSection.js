@@ -46,7 +46,7 @@ const ThreeRowSection = ({ arr, classes, justifyForEven, justifyForOdd }) => {
                   : null}
                 <Button
                   component={Link}
-                  to={section.link}
+                  to={`${section.route}${section.nestedRoute}`}
                   className={classes.button}
                   variant="outlined"
                 >
@@ -88,7 +88,7 @@ const ThreeRowSection = ({ arr, classes, justifyForEven, justifyForOdd }) => {
                   : null}
                 <Button
                   component={Link}
-                  to={section.link}
+                  to={`${section.route}${section.nestedRoute}`}
                   className={classes.button}
                   variant="outlined"
                 >

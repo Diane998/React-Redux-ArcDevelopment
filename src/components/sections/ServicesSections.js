@@ -39,7 +39,8 @@ const useStyles = makeStyles(theme => ({
 const services = [
   {
     title: 'Custom Software Development',
-    link: '/customsoftware',
+    route: '/services',
+    nestedRoute: '/customsoftware',
     subtitles: ['Save Energy. Save Time. Save Money.'],
     specialText: [
       {
@@ -52,7 +53,8 @@ const services = [
   },
   {
     title: 'IOS/Android App Development',
-    link: '/mobileapps',
+    route: '/services',
+    nestedRoute: '/mobileapps',
     subtitles: [
       ' Extend Functionality. Extend Access. Increase Engagement.',
       'Integrate your web experience or create a standalone app with either mobile platform.'
@@ -62,7 +64,8 @@ const services = [
   },
   {
     title: 'Website Development',
-    link: '/websites',
+    route: '/services',
+    nestedRoute: '/websites',
     subtitles: [
       'Reach More. Discover More. Sell More.',
       'Optimized for Search Engines, built for speed.'
