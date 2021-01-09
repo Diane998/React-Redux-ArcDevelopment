@@ -4,7 +4,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import theme from './ui/Theme';
 
 import HeaderContainer from '../containers/HeaderContainer';
-import Footer from './footer/Footer';
+import FooterContainer from '../containers/FooterContainer';
 import Home from './pages/Home';
 import Services from './pages/Services';
 import Revolution from './pages/Revolution';
@@ -35,7 +35,7 @@ const App = () => {
           <Route exact path="/contact" component={Contact} />
           <Route exact path="/estimate" component={Estimate} />
         </Switch>
-        <Footer />
+        <FooterContainer />
       </BrowserRouter>
     </ThemeProvider>
   );
