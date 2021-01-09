@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 
-const TwoColumnSection = ({ col1, col2 }) => {
+const TwoColumnSection = ({ col1, col2, ...otherProps }) => {
   return (
-    <Grid item style={{ width: '100vw' }}>
-      <Grid container direction="row" alignItems="center" justify="flex-end">
+    <Grid item>
+      <Grid {...otherProps}>
         {col1()}
         {col2()}
       </Grid>

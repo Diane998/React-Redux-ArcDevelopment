@@ -5,7 +5,7 @@ import { Grid } from '@material-ui/core';
 const OneColumnSection = ({ children, ...otherProps }) => {
   return (
     <Grid item>
-      <Grid container direction="row" {...otherProps}>
+      <Grid container {...otherProps}>
         {children}
       </Grid>
     </Grid>

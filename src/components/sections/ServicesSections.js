@@ -44,8 +44,7 @@ const useStyles = makeStyles(theme => ({
 const services = [
   {
     title: 'Custom Software Development',
-    route: '/services',
-    nestedRoute: '/customsoftware',
+    route: '/services/customsoftware',
     subtitles: ['Save Energy. Save Time. Save Money.'],
     specialText: [
       {
@@ -58,8 +57,7 @@ const services = [
   },
   {
     title: 'IOS/Android App Development',
-    route: '/services',
-    nestedRoute: '/mobileapps',
+    route: '/services/mobileapps',
     subtitles: [
       ' Extend Functionality. Extend Access. Increase Engagement.',
       'Integrate your web experience or create a standalone app with either mobile platform.'
@@ -69,8 +67,7 @@ const services = [
   },
   {
     title: 'Website Development',
-    route: '/services',
-    nestedRoute: '/websites',
+    route: '/services/websites',
     subtitles: [
       'Reach More. Discover More. Sell More.',
       'Optimized for Search Engines, built for speed.'
@@ -95,7 +92,7 @@ const renderSpecialText = (arr, classes) =>
     </Typography>
   ));
 
-const ServicesSection = () => {
+const ServicesSection = ({ setTabIndex }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
@@ -124,9 +121,10 @@ const ServicesSection = () => {
                 : null}
               <Button
                 component={Link}
-                to={`${section.route}${section.nestedRoute}`}
+                to={section.route}
                 className={classes.button}
                 variant="outlined"
+                onClick={() => setTabIndex(1)}
               >
                 <span style={{ marginRight: 5 }}>Learn More</span>
                 <ButtonArrow
@@ -164,9 +162,10 @@ const ServicesSection = () => {
                 : null}
               <Button
                 component={Link}
-                to={`${section.route}${section.nestedRoute}`}
+                to={section.route}
                 className={classes.button}
                 variant="outlined"
+                onClick={() => setTabIndex(1)}
               >
                 <span style={{ marginRight: 5 }}>Learn More</span>
                 <ButtonArrow

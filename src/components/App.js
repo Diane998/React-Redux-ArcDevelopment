@@ -5,12 +5,15 @@ import theme from './ui/Theme';
 
 import HeaderContainer from '../containers/HeaderContainer';
 import Footer from './footer/Footer';
-import HomePage from './pages/HomePage';
-import ServicesPage from './pages/ServicesPage';
-import RevolutionPage from './pages/RevolutionPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
-import EstimatePage from './pages/EstimatePage';
+import Home from './pages/Home';
+import Services from './pages/Services';
+import Revolution from './pages/Revolution';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Estimate from './pages/Estimate';
+import CustomSoftware from './services/CustomSoftware';
+import MobileApps from './services/MobileApps';
+import Websites from './services/Websites';
 
 const App = () => {
   return (
@@ -18,12 +21,19 @@ const App = () => {
       <BrowserRouter>
         <HeaderContainer />
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/services/:serviceId" component={ServicesPage} />
-          <Route exact path="/revolution" component={RevolutionPage} />
-          <Route exact path="/about" component={AboutPage} />
-          <Route exact path="/contact" component={ContactPage} />
-          <Route exact path="/estimate" component={EstimatePage} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/services" component={Services} />
+          <Route
+            exact
+            path="/services/customsoftware"
+            component={CustomSoftware}
+          />
+          <Route exact path="/services/mobileapps" component={MobileApps} />
+          <Route exact path="/services/websites" component={Websites} />
+          <Route exact path="/revolution" component={Revolution} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/estimate" component={Estimate} />
         </Switch>
         <Footer />
       </BrowserRouter>

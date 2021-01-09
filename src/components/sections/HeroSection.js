@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const HeroSection = () => {
+const HeroSection = ({ setTabIndex }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
@@ -110,6 +110,7 @@ const HeroSection = () => {
       <Grid container alignItems="center" className={classes.buttonContainer}>
         <Grid item>
           <Button
+            onClick={() => setTabIndex(5)}
             component={Link}
             to="/estimate"
             className={classes.estimateButton}
@@ -120,6 +121,7 @@ const HeroSection = () => {
         </Grid>
         <Grid item>
           <Button
+            onClick={() => setTabIndex(2)}
             component={Link}
             to="/revolution"
             variant="outlined"
@@ -143,7 +145,16 @@ const HeroSection = () => {
     </Grid>
   );
 
-  return <TwoColumnSection col1={col1} col2={col2} />;
+  return (
+    <TwoColumnSection
+      col1={col1}
+      col2={col2}
+      container
+      direction="row"
+      alignItems="center"
+      justify="flex-end"
+    />
+  );
 };
 
 export default HeroSection;
