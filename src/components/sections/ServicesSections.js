@@ -106,6 +106,7 @@ const ServicesSection = () => {
         i % 2 === 0 ? (
           <OneColumnSection
             key={i}
+            direction="row"
             justify={matchesSM ? 'center' : undefined}
             className={classes.container}
           >
@@ -146,6 +147,7 @@ const ServicesSection = () => {
         ) : (
           <OneColumnSection
             key={i}
+            direction="row"
             justify={matchesSM ? 'center' : 'flex-end'}
             className={classes.container}
           >
