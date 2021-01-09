@@ -31,7 +31,7 @@ const TabItems = ({ tabIndex, setTabIndex }) => {
         value={tabIndex}
         onChange={handleChange}
         className={classes.tabContainer}
-        indicatorColor="none"
+        indicatorColor="primary"
       >
         {routes.map(({ name, link }, i) =>
           i !== 5 ? (

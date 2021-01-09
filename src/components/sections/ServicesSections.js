@@ -1,7 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
+import { useTheme, makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import ThreeRowSection from '../section-templates/ThreeRowSection';
+import { Grid, Button, Typography } from '@material-ui/core';
+import ButtonArrow from '../ui/ButtonArrow';
+
+import OneColumnSection from '../section-templates/OneColumnSection';
 
 import customSoftwareIcon from '../../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../../assets/mobileIcon.svg';
@@ -75,16 +80,111 @@ const services = [
   }
 ];
 
+const renderSubtitles = arr =>
+  arr.map((subtitle, i) => (
+    <Typography key={i} variant="subtitle1">
+      {subtitle}
+    </Typography>
+  ));
+
+const renderSpecialText = (arr, classes) =>
+  arr.map(({ text, span }, i) => (
+    <Typography key={i} variant="subtitle1">
+      {text}
+      <span className={classes}>{span}</span>
+    </Typography>
+  ));
+
 const ServicesSection = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <ThreeRowSection
-      arr={services}
-      classes={classes}
-      justifyForEven={''}
-      justifyForOdd={'flex-end'}
-    />
+    <>
+      {services.map((section, i) =>
+        i % 2 === 0 ? (
+          <OneColumnSection
+            key={i}
+            justify={matchesSM ? 'center' : undefined}
+            className={classes.container}
+          >
+            <Grid
+              item
+              style={{
+                marginLeft: matchesSM ? 0 : '5em',
+                textAlign: matchesSM ? 'center' : ''
+              }}
+            >
+              <Typography variant="h4">{section.title}</Typography>
+              {renderSubtitles(section.subtitles)}
+              {section.specialText
+                ? renderSpecialText(section.specialText, classes.specialText)
+                : null}
+              <Button
+                component={Link}
+                to={`${section.route}${section.nestedRoute}`}
+                className={classes.button}
+                variant="outlined"
+              >
+                <span style={{ marginRight: 5 }}>Learn More</span>
+                <ButtonArrow
+                  width={10}
+                  height={10}
+                  fill={theme.palette.common.blue}
+                />
+              </Button>
+            </Grid>
+            <Grid item>
+              <img
+                className={classes.icon}
+                src={section.image}
+                alt={section.alt}
+              />
+            </Grid>
+          </OneColumnSection>
+        ) : (
+          <OneColumnSection
+            key={i}
+            justify={matchesSM ? 'center' : 'flex-end'}
+            className={classes.container}
+          >
+            <Grid
+              item
+              style={{
+                textAlign: matchesSM ? 'center' : undefined
+              }}
+            >
+              <Typography variant="h4">{section.title}</Typography>
+              {renderSubtitles(section.subtitles)}
+              {section.specialText
+                ? renderSpecialText(section.specialText, classes.specialText)
+                : null}
+              <Button
+                component={Link}
+                to={`${section.route}${section.nestedRoute}`}
+                className={classes.button}
+                variant="outlined"
+              >
+                <span style={{ marginRight: 5 }}>Learn More</span>
+                <ButtonArrow
+                  width={10}
+                  height={10}
+                  fill={theme.palette.common.blue}
+                />
+              </Button>
+            </Grid>
+            <Grid item style={{ marginRight: matchesSM ? 0 : '5em' }}>
+              <img
+                className={classes.icon}
+                src={section.image}
+                alt={section.alt}
+              />
+            </Grid>
+          </OneColumnSection>
+        )
+      )}
+    </>
   );
 };
 

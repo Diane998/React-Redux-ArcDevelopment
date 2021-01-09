@@ -73,20 +73,23 @@ const Header = ({ setTabIndex }) => {
   return (
     <>
       <ElevationScroll>
-        <AppBar position="fixed" className={classes.appBar}>
-          <AppBar position="fixed" className={classes.appbar}>
-            <Toolbar disableGutters>
-              <Button
-                component={Link}
-                to="/"
-                onClick={() => setTabIndex(0)}
-                className={classes.logoContainer}
-              >
-                <img alt="company logo" className={classes.logo} src={logo} />
-              </Button>
-              {matchesMD ? <DrawerContainer /> : <TabItemsContainer />}
-            </Toolbar>
-          </AppBar>
+        <AppBar
+          style={{ width: '100vw', left: 0 }}
+          position="fixed"
+          className={classes.appBar}
+        >
+          <Toolbar style={{ width: '100vw' }} disableGutters>
+            <Button
+              disableRipple
+              component={Link}
+              to="/"
+              onClick={() => setTabIndex(0)}
+              className={classes.logoContainer}
+            >
+              <img alt="company logo" className={classes.logo} src={logo} />
+            </Button>
+            {matchesMD ? <DrawerContainer /> : <TabItemsContainer />}
+          </Toolbar>
         </AppBar>
       </ElevationScroll>
       <div className={classes.toolbar} />

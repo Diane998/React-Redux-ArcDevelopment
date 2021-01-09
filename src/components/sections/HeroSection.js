@@ -17,18 +17,28 @@ const useStyles = makeStyles(theme => ({
     marginLeft: '5em',
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0
+    },
+    '@media (max-width:360px)': {
+      width: '100%'
     }
   },
   h2: {
     [theme.breakpoints.down('xs')]: {
       fontSize: '2em',
-      padding: '0em 0.5em'
+      padding: '0 0.5em'
+    },
+    '@media (max-width:360px)': {
+      fontSize: '1.5rem'
     }
   },
   buttonContainer: {
     marginTop: '1em',
     [theme.breakpoints.down('xs')]: {
-      margin: '1em 1em'
+      margin: '1em 1em',
+      width: '90vw'
+    },
+    '@media (max-width:360px)': {
+      justifyContent: 'space-between'
     }
   },
   estimateButton: {
@@ -40,13 +50,31 @@ const useStyles = makeStyles(theme => ({
     marginRight: 40,
     '&:hover': {
       backgroundColor: theme.palette.secondary.light
+    },
+    '@media (max-width:360px)': {
+      margin: '1em 0'
     }
   },
   learnButton: {
     ...theme.typography.learnButton,
     fontSize: '0.9rem',
     height: 45,
-    width: 145
+    width: 145,
+    '@media (max-width:360px)': {
+      margin: '1em 0'
+    }
+  },
+  animationContainer: {
+    maxWidth: '50em',
+    minWidth: '21em',
+    margin: '2em 0em 0em 10%',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '3em'
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '2em',
+      maxWidth: '30em'
+    }
   }
 }));
 
@@ -110,8 +138,8 @@ const HeroSection = () => {
   );
 
   const col2 = () => (
-    <Grid sm item className={classes.animation}>
-      <Lottie options={defaultOptions} height={'100'} qidth={'100'} />
+    <Grid sm item className={classes.animationContainer}>
+      <Lottie options={defaultOptions} height={'100'} width={'100'} />
     </Grid>
   );
 

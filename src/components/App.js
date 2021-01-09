@@ -4,6 +4,7 @@ import { ThemeProvider } from '@material-ui/styles';
 import theme from './ui/Theme';
 
 import HeaderContainer from '../containers/HeaderContainer';
+import Footer from './footer/Footer';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import RevolutionPage from './pages/RevolutionPage';
@@ -18,12 +19,13 @@ const App = () => {
         <HeaderContainer />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/services" component={ServicesPage} />
+          <Route exact path="/services/:serviceId" component={ServicesPage} />
           <Route exact path="/revolution" component={RevolutionPage} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/contact" component={ContactPage} />
           <Route exact path="/estimate" component={EstimatePage} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
