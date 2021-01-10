@@ -9,7 +9,7 @@ import Home from './pages/Home';
 import ServicesContainer from '../containers/ServicesContainer';
 import Revolution from './pages/Revolution';
 import About from './pages/About';
-import Contact from './pages/Contact';
+import ContactContainer from '../containers/ContactContainer';
 import Estimate from './pages/Estimate';
 import CustomSoftware from './services/CustomSoftware';
 import MobileApps from './services/MobileApps';
@@ -32,7 +32,7 @@ const App = () => {
           <Route exact path="/services/websites" component={Websites} />
           <Route exact path="/revolution" component={Revolution} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />
+          <Route exact path="/contact" component={ContactContainer} />
           <Route exact path="/estimate" component={Estimate} />
         </Switch>
         <FooterContainer />
