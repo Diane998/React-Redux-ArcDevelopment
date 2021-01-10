@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ServicesNav = ({ row }) => {
+const ServicesNav = ({ row, backRoute, forwardRoute }) => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesMD = useMediaQuery(theme.breakpoints.down('md'));
@@ -55,7 +55,7 @@ const ServicesNav = ({ row }) => {
           <IconButton
             style={{ backgroundColor: 'transparent' }}
             component={Link}
-            to="/services"
+            to={backRoute}
           >
             <img src={backArrow} alt="Back to the Services Page" />
           </IconButton>
@@ -93,7 +93,7 @@ const ServicesNav = ({ row }) => {
           <IconButton
             style={{ backgroundColor: 'transparent' }}
             component={Link}
-            to="/mobileapps"
+            to={forwardRoute}
           >
             <img
               src={forwardArrow}
