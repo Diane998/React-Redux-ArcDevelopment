@@ -92,10 +92,12 @@ const renderSpecialText = (arr, classes) =>
     </Typography>
   ));
 
-const ServicesSection = ({ setTabIndex }) => {
+const ServicesSection = props => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { setTabIndex, match } = props;
 
   return (
     <>
@@ -103,6 +105,7 @@ const ServicesSection = ({ setTabIndex }) => {
         i % 2 === 0 ? (
           <OneColumnSection
             key={i}
+            container
             direction="row"
             justify={matchesSM ? 'center' : undefined}
             className={classes.container}
@@ -145,6 +148,7 @@ const ServicesSection = ({ setTabIndex }) => {
         ) : (
           <OneColumnSection
             key={i}
+            container
             direction="row"
             justify={matchesSM ? 'center' : 'flex-end'}
             className={classes.container}

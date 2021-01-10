@@ -43,6 +43,7 @@ const RevolutionSection = ({ setTabIndex }) => {
 
   return (
     <OneColumnSection
+      container
       style={{ height: '100em', marginTop: '12em' }}
       alignItems="center"
       justify="center"
