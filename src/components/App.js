@@ -6,7 +6,7 @@ import theme from './ui/Theme';
 import HeaderContainer from '../containers/HeaderContainer';
 import FooterContainer from '../containers/FooterContainer';
 import Home from './pages/Home';
-import Services from './pages/Services';
+import ServicesContainer from '../containers/ServicesContainer';
 import Revolution from './pages/Revolution';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -22,7 +22,7 @@ const App = () => {
         <HeaderContainer />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/services" component={Services} />
+          <Route exact path="/services" component={ServicesContainer} />
           <Route
             exact
             path="/services/customsoftware"

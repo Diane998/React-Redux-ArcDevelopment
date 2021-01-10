@@ -80,7 +80,7 @@ const CustomSoftware = () => {
     }
   };
 
-  const rows0 = [
+  const row0 = [
     {
       h2: 'Custom Software Development',
       paragraphs: [
@@ -92,13 +92,13 @@ const CustomSoftware = () => {
     }
   ];
 
-  const rows1 = [
+  const row1 = [
     { h4: 'Save Energy', img: lightbulb, alt: 'lightbulb' },
     { h4: 'Save Time', img: stopwatch, alt: 'stopwatch' },
     { h4: 'Save Money', img: cash, alt: 'cash' }
   ];
 
-  const rows2 = [
+  const row2 = [
     {
       h4: 'Digital Documents & Data',
       paragraphs: [
@@ -125,7 +125,7 @@ const CustomSoftware = () => {
     }
   ];
 
-  const rows3 = [
+  const row3 = [
     {
       image: {
         src: roots,
@@ -141,7 +141,7 @@ const CustomSoftware = () => {
     }
   ];
 
-  const rows4 = [
+  const row4 = [
     {
       h4: 'Automation',
       paragraphs: [
@@ -208,7 +208,11 @@ const CustomSoftware = () => {
 
   return (
     <Grid container direction="column">
-      <ServicesNav row={rows0} />
+      <ServicesNav
+        row={row0}
+        backRoute="/services"
+        forwardRoute="/services/mobileapps"
+      />
       <Grid
         item
         container
@@ -217,7 +221,7 @@ const CustomSoftware = () => {
         style={{ marginTop: '5em', marginBottom: '8em' }}
         className={classes.rowContainer}
       >
-        {rows1.map(({ h4, img, alt }, i) => (
+        {row1.map(({ h4, img, alt }, i) => (
           <Grid
             key={i}
             item
@@ -244,7 +248,7 @@ const CustomSoftware = () => {
         justify="space-between"
         className={classes.rowContainer}
       >
-        {renderTwoCols(rows2)}
+        {renderTwoCols(row2)}
       </Grid>
       <Grid
         item
@@ -253,7 +257,7 @@ const CustomSoftware = () => {
         style={{ marginTop: '8em', marginBottom: '8em' }}
         className={classes.rowContainer}
       >
-        {rows3.map(
+        {row3.map(
           ({ image: { src, alt, height, width }, h4, paragraphs }, i) => (
             <Grid key={i} item container direction="column" alignItems="center">
               <Grid item>
@@ -287,7 +291,7 @@ const CustomSoftware = () => {
         style={{ marginBottom: '8em' }}
         className={classes.rowContainer}
       >
-        {renderTwoCols(rows4)}
+        {renderTwoCols(row4)}
       </Grid>
       <Grid item>
         <CallToActionSectionContainer />
